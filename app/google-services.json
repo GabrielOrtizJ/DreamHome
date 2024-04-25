@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "529912801250",
+    "project_id": "dreamhome-306e4",
+    "storage_bucket": "dreamhome-306e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529912801250:android:d922ba9274c79430827bbb",
+        "android_client_info": {
+          "package_name": "com.gabrieldavidortizj.dreamhome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529912801250-r48i2o1978pajscohgrp0o0bfh414959.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gabrieldavidortizj.dreamhome",
+            "certificate_hash": "36b4a3a1790172077de86755ae3da05d044b8295"
+          }
+        },
+        {
+          "client_id": "529912801250-6998etke3qbp8sblima0234r60k6eg4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOScYDd47mZjAG-FcxtKZRHV5sxJYgmrQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529912801250-6998etke3qbp8sblima0234r60k6eg4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

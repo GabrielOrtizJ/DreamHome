@@ -3,24 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/perfil"
+        android:id="@+id/misPisos"
+        android:title="Mis pisos"
+        android:icon="@drawable/baseline_manage_search_24"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/favoritos"
+        android:title="Favoritos"
+        android:icon="@drawable/baseline_star_border_24"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/perfil"
         android:icon="@drawable/perfil"
         android:title="Perfil"
-        app:showAsAction="ifRoom" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showAsAction="always"
+        />
+    <item
+        android:title=""
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showAsAction="always"
+        />
     <item
         android:id="@+id/cerrar_sesion"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:icon="@drawable/cerrar_sesion"
         android:title="Cerrar cession"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/salir"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/salir"
         android:icon="@drawable/boton_x"
         android:title="Salir"
-        app:showAsAction="ifRoom" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showAsAction="always"
+        />
 </menu>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_beta2"
+    android:noHistory="true"
+    tools:context=".property.EditProperty">
+
+  <TextView
+      android:id="@+id/textView9"
+      android:layout_width="332dp"
+      android:layout_height="127dp"
+      android:layout_marginStart="30dp"
+      android:layout_marginTop="36dp"
+      android:layout_marginEnd="31dp"
+      android:fontFamily="@font/alfa_slab_one"
+      android:gravity="center"
+      android:text="Editar propiedad"
+      android:textColor="@color/white"
+      android:textSize="34sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/textView10"
+      android:layout_width="100dp"
+      android:layout_height="35dp"
+      android:layout_marginStart="28dp"
+      android:layout_marginBottom="32dp"
+      android:gravity="center"
+      android:text="Habitaciones "
+      android:textColor="@color/white"
+      android:textSize="16sp"
+      app:layout_constraintBottom_toTopOf="@+id/textView14"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/textView13"
+      android:layout_width="100dp"
+      android:layout_height="25dp"
+      android:layout_marginStart="28dp"
+      android:layout_marginBottom="20dp"
+      android:gravity="center"
+      android:text="Direccion "
+      android:textColor="@color/white"
+      android:textSize="16sp"
+      app:layout_constraintBottom_toTopOf="@+id/textView10"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/textView14"
+      android:layout_width="100dp"
+      android:layout_height="25dp"
+      android:layout_marginStart="28dp"
+      android:layout_marginBottom="168dp"
+      android:gravity="center"
+      android:text="Baños"
+      android:textColor="@color/white"
+      android:textSize="16sp"
+      app:layout_constraintBottom_toTopOf="@+id/desc_editP"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/textView15"
+      android:layout_width="132dp"
+      android:layout_height="25dp"
+      android:layout_marginStart="128dp"
+      android:layout_marginBottom="12dp"
+      android:gravity="center"
+      android:text="Descripcion"
+      android:textColor="@color/white"
+      android:textSize="20sp"
+      app:layout_constraintBottom_toTopOf="@+id/desc_editP"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <EditText
+      android:id="@+id/desc_editP"
+      android:layout_width="294dp"
+      android:layout_height="51dp"
+      android:layout_marginStart="56dp"
+      android:layout_marginBottom="8dp"
+      android:ems="10"
+      android:gravity="center"
+      android:hint="Descripcion"
+      android:inputType="text"
+      app:layout_constraintBottom_toTopOf="@+id/btnAddProperty"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <EditText
+      android:id="@+id/direccion_editP"
+      android:layout_width="wrap_content"
+      android:layout_height="51dp"
+      android:layout_marginStart="12dp"
+      android:layout_marginBottom="8dp"
+      android:ems="10"
+      android:hint="Dirección"
+      android:inputType="text"
+      app:layout_constraintBottom_toTopOf="@+id/hab_editP"
+      app:layout_constraintStart_toEndOf="@+id/textView13" />
+
+  <EditText
+      android:id="@+id/hab_editP"
+      android:layout_width="wrap_content"
+      android:layout_height="51dp"
+      android:layout_marginStart="12dp"
+      android:layout_marginBottom="8dp"
+      android:ems="10"
+      android:hint="Habitaciones"
+      android:inputType="number"
+      app:layout_constraintBottom_toTopOf="@+id/ba_editP"
+      app:layout_constraintStart_toEndOf="@+id/textView10" />
+
+  <EditText
+      android:id="@+id/ba_editP"
+      android:layout_width="wrap_content"
+      android:layout_height="51dp"
+      android:layout_marginStart="12dp"
+      android:layout_marginBottom="128dp"
+      android:ems="10"
+      android:hint="Baños"
+      android:inputType="number"
+      app:layout_constraintBottom_toTopOf="@+id/textView15"
+      app:layout_constraintStart_toEndOf="@+id/textView14" />
+
+  <TextView
+      android:id="@+id/idpropertytext"
+      android:layout_width="226dp"
+      android:layout_height="22dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginBottom="4dp"
+      android:background="@android:drawable/screen_background_dark_transparent"
+      android:hint="Id"
+      android:textColor="@color/white"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
+
+  <TextView
+      android:id="@+id/btnAddProperty"
+      android:layout_width="63dp"
+      android:layout_height="48dp"
+      android:layout_marginEnd="168dp"
+      android:layout_marginBottom="20dp"
+      android:background="@drawable/baseline_settingshome"
+      app:layout_constraintBottom_toTopOf="@+id/idpropertytext"
+      app:layout_constraintEnd_toEndOf="parent" />
+
+  <TextView
+      android:id="@+id/nombreEdit"
+      android:layout_width="124dp"
+      android:layout_height="26dp"
+      android:layout_marginEnd="24dp"
+      android:layout_marginBottom="52dp"
+      android:text="Nombre"
+      android:textColor="@color/white"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
+
+  <EditText
+      android:id="@+id/preciotext"
+      android:layout_width="wrap_content"
+      android:layout_height="51dp"
+      android:layout_marginTop="12dp"
+      android:layout_marginEnd="60dp"
+      android:ems="10"
+      android:hint="precio"
+      android:inputType="number"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ba_editP" />
+
+  <RadioGroup
+      android:layout_width="242dp"
+      android:layout_height="53dp"
+      android:layout_marginStart="124dp"
+      android:layout_marginTop="4dp"
+      android:orientation="horizontal"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/preciotext">
+
+    <RadioButton
+        android:id="@+id/ventatext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Venta" />
+
+    <RadioButton
+        android:id="@+id/alquilertext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alquiler" />
+  </RadioGroup>
+
+  <TextView
+      android:id="@+id/textView30"
+      android:layout_width="56dp"
+      android:layout_height="20dp"
+      android:layout_marginStart="48dp"
+      android:layout_marginTop="32dp"
+      android:gravity="center"
+      android:text="Precio"
+      android:textColor="@color/white"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

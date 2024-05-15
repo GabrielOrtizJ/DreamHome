@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondocream"
+    tools:context=".meProfile">
+
+    <LinearLayout
+        android:layout_width="273dp"
+        android:layout_height="341dp"
+        android:layout_marginBottom="176dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/providertextViewme"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/emailtextViewme"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/nameTextTextme"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:fontFamily="@font/baloo_bhai"
+            android:gravity="center"
+            android:hint="Nombre"
+            android:inputType="text"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/addressTextTextme"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:fontFamily="@font/baloo_bhai"
+            android:gravity="center"
+            android:hint="Direccion"
+            android:inputType="text"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/phoneTextTextme"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:fontFamily="@font/baloo_bhai"
+            android:gravity="center"
+            android:hint="Telefono"
+            android:inputType="text"
+            android:textSize="20sp" />
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/imagePerfilme"
+        android:layout_width="177dp"
+        android:layout_height="142dp"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="107dp"
+        android:background="@drawable/perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5me"
+        android:layout_width="77dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/carpeta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btnConfigProfileme"
+        android:layout_width="75dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="308dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/baseline_settings_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/homeButtonme"
+        android:layout_width="75dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/boton_de_inicio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/modeTextme"
+        android:layout_width="159dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginBottom="96dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11me"
+        android:layout_width="91dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="23dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:text="Modo"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/homeButtonme"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

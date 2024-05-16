@@ -1,10 +1,11 @@
-package com.gabrieldavidortizj.dreamhome
+package com.gabrieldavidortizj.dreamhome.property
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.gabrieldavidortizj.dreamhome.R
 
 class PropertyAdapter(
     var mList: List<PropertyData>,

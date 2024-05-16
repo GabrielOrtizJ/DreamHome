@@ -5,16 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondocream"
-    tools:context=".meProfile">
+    tools:context=".user.meProfile">
 
     <LinearLayout
         android:layout_width="273dp"
         android:layout_height="341dp"
-        android:layout_marginBottom="176dp"
+        android:layout_marginBottom="156dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
@@ -39,7 +38,7 @@
             android:gravity="center"
             android:hint="Nombre"
             android:inputType="text"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/addressTextTextme"
@@ -107,16 +106,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/homeButtonme"
-        android:layout_width="75dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/boton_de_inicio"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/modeTextme"
         android:layout_width="159dp"
         android:layout_height="33dp"
@@ -133,11 +122,10 @@
         android:layout_width="91dp"
         android:layout_height="33dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="23dp"
         android:fontFamily="@font/alfa_slab_one"
         android:gravity="center"
         android:text="Modo"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/homeButtonme"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="529dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

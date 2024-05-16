@@ -7,17 +7,16 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import android.widget.SearchView
 import android.widget.TextView
 import com.gabrieldavidortizj.dreamhome.property.CreateProperty
 import com.gabrieldavidortizj.dreamhome.property.favorite
 import com.gabrieldavidortizj.dreamhome.property.properties
 import com.gabrieldavidortizj.dreamhome.property.yourproperties
+import com.gabrieldavidortizj.dreamhome.user.meProfile
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.remoteconfig.remoteConfig
-import org.checkerframework.checker.units.qual.A
 
 enum class ProviderType{
     BASIC,
@@ -63,7 +62,9 @@ class HomeActivity : AppCompatActivity() {
         prefs.apply()
 
         searchView.setOnClickListener{
-            val intent = Intent(this, properties::class.java)
+            val intent = Intent(this, properties::class.java).apply {
+                putExtra("email", emailText.text.toString())
+             }
             startActivity(intent)
         }
         addHome.setOnClickListener{

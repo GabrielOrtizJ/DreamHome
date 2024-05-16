@@ -1,4 +1,4 @@
-package com.gabrieldavidortizj.dreamhome
+package com.gabrieldavidortizj.dreamhome.property
 
 
 data class PropertyData(

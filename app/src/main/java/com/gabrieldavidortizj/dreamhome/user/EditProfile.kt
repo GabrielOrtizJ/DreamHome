@@ -1,4 +1,4 @@
-package com.gabrieldavidortizj.dreamhome
+package com.gabrieldavidortizj.dreamhome.user
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.TextView
+import com.gabrieldavidortizj.dreamhome.HomeActivity
+import com.gabrieldavidortizj.dreamhome.R
 import com.google.firebase.firestore.FirebaseFirestore
 
 class EditProfile : AppCompatActivity() {

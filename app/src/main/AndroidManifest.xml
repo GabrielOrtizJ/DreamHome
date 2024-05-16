@@ -25,7 +25,7 @@
             android:name=".property.CreateProperty"
             android:exported="false" />
         <activity
-            android:name=".meProfile"
+            android:name=".user.meProfile"
             android:exported="false" />
         <activity
             android:name=".Navegation"
@@ -39,7 +39,7 @@
             android:name=".property.properties"
             android:exported="false" />
         <activity
-            android:name=".EditProfile"
+            android:name=".user.EditProfile"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

@@ -1,10 +1,10 @@
-package com.gabrieldavidortizj.dreamhome
+package com.gabrieldavidortizj.dreamhome.user
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.TextView
+import com.gabrieldavidortizj.dreamhome.R
 import com.google.firebase.firestore.FirebaseFirestore
 
 class meProfile : AppCompatActivity() {

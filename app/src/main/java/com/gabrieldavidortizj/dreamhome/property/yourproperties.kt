@@ -13,8 +13,6 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.gabrieldavidortizj.dreamhome.PropertyAdapter
-import com.gabrieldavidortizj.dreamhome.PropertyData
 import com.gabrieldavidortizj.dreamhome.R
 import com.gabrieldavidortizj.dreamhome.auth.signIn
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,6 +25,7 @@ class yourproperties : AppCompatActivity() {
     private lateinit var adapter : PropertyAdapter
     private val db = FirebaseFirestore.getInstance()
     private val propertiesCollection = db.collection("property")
+    private lateinit var email : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +35,9 @@ class yourproperties : AppCompatActivity() {
         searchView = findViewById(R.id.searchViewYourProperties)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
+        val bundle=intent.extras
+        email = bundle?.getString("email") ?: ""
+
         addDataToList()
 
         adapter = PropertyAdapter(mList, true) { view, documentId ->
@@ -69,7 +71,9 @@ class yourproperties : AppCompatActivity() {
         popup.setOnMenuItemClickListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.option_show -> {
-                    val intent = Intent(this, signIn::class.java)
+                    val intent = Intent(this, viewProperty::class.java).apply {
+                        putExtra("DOCUMENT_ID", documentId) // Pasa el ID del documento como un extra
+                    }
                     startActivity(intent)
                     Toast.makeText(this, "Mostrar", Toast.LENGTH_SHORT).show()
                     true
@@ -115,6 +119,7 @@ class yourproperties : AppCompatActivity() {
 
     private fun addDataToList() {
         propertiesCollection
+            .whereEqualTo("userId", email)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {

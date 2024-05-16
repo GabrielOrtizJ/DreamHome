@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/option_show"
+        android:title="Mostrar" />
+    <item
+        android:id="@+id/option_favorite"
+        android:title="añadir a favoritos" />
+</menu>

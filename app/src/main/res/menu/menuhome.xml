@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/gmailP"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:icon="@drawable/correo_electronico"
+        android:title="Redactar Gmail"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/misPisos"
         android:title="Mis pisos"
         android:icon="@drawable/baseline_manage_search_24"
@@ -26,12 +33,7 @@
         android:layout_height="match_parent"
         app:showAsAction="always"
         />
-    <item
-        android:title=""
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:showAsAction="always"
-        />
+
     <item
         android:id="@+id/cerrar_sesion"
         android:icon="@drawable/cerrar_sesion"

@@ -1,11 +1,17 @@
 package com.gabrieldavidortizj.dreamhome.user
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.gabrieldavidortizj.dreamhome.R
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
+import java.io.File
 
 class meProfile : AppCompatActivity() {
     private lateinit var config : TextView
@@ -16,9 +22,10 @@ class meProfile : AppCompatActivity() {
     private lateinit var nombre : TextView
     private lateinit var direccion : TextView
     private lateinit var telefono : TextView
+    private lateinit var userImage: ImageView
     private lateinit var mode : TextView
-
     private val db = FirebaseFirestore.getInstance()
+    private val storage = FirebaseStorage.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +38,7 @@ class meProfile : AppCompatActivity() {
         direccion =  findViewById(R.id.addressTextTextme)
         telefono = findViewById(R.id.phoneTextTextme)
         mode = findViewById(R.id.modeTextme)
+        userImage = findViewById(R.id.imagePerfilme)
 
         val bundle=intent.extras
         email = bundle?.getString("email") ?: ""
@@ -52,6 +60,23 @@ class meProfile : AppCompatActivity() {
                 putExtra("provider", providerText.text.toString())
             }
             startActivity(intent)
+        }
+        db.collection("user").document(email).get().addOnSuccessListener {
+            // ...
+            val imageUrl = email
+            if (imageUrl != null) {
+                downloadImageFromFirebase(imageUrl)
+            }
+        }
+    }
+
+    private fun downloadImageFromFirebase(userId: String) {
+        val ref = storage.reference.child("images/$userId")
+        ref.downloadUrl.addOnSuccessListener { uri ->
+            val url = uri.toString()
+            Picasso.get().load(url).into(userImage)
+        }.addOnFailureListener {
+            Toast.makeText(this, "Error al descargar la imagen", Toast.LENGTH_SHORT).show()
         }
     }
     private fun setup(email : String,provider:String) {

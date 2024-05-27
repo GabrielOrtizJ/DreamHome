@@ -4,9 +4,13 @@ import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import com.gabrieldavidortizj.dreamhome.R
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
+
 
 class viewProperty : AppCompatActivity() {
     private lateinit var direccion : TextView
@@ -19,6 +23,9 @@ class viewProperty : AppCompatActivity() {
     private lateinit var id : String
     private val db = FirebaseFirestore.getInstance()
     private val propertiesCollection = db.collection("property")
+    private lateinit var storage: FirebaseStorage
+
+    private lateinit var image : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_property)
@@ -29,7 +36,8 @@ class viewProperty : AppCompatActivity() {
         ba = findViewById(R.id.baView)
         descripcion = findViewById(R.id.descripcionView)
         nombre = findViewById(R.id.nombreView)
-
+        image = findViewById(R.id.imageVproperty)
+        storage = FirebaseStorage.getInstance()
 
         val bundle = intent.extras
         id = bundle?.getString("DOCUMENT_ID") ?: ""
@@ -44,6 +52,7 @@ class viewProperty : AppCompatActivity() {
                 ba.text = property?.baños
                 descripcion.text = property?.descripcion
                 nombre.text = property?.asesorNombreItem
+                downloadImageFromFirebase(id)
             } else {
                 Log.d(TAG, "No such document")
             }
@@ -51,4 +60,15 @@ class viewProperty : AppCompatActivity() {
             Log.d(TAG, "get failed with ", exception)
         }
     }
+    private fun downloadImageFromFirebase(propertyId: String) {
+        val ref = storage.reference.child("propertyImages/$propertyId")
+        ref.downloadUrl.addOnSuccessListener { uri ->
+            val url = uri.toString()
+            Picasso.get().load(url).into(image)
+        }.addOnFailureListener {
+            // Puedes manejar el error aquí, por ejemplo, estableciendo una imagen predeterminada
+            // image.setImageResource(R.drawable.default_image)
+        }
+    }
+
 }

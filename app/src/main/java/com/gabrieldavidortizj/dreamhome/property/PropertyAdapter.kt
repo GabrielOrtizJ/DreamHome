@@ -3,9 +3,12 @@ package com.gabrieldavidortizj.dreamhome.property
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.gabrieldavidortizj.dreamhome.R
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 
 class PropertyAdapter(
     var mList: List<PropertyData>,
@@ -23,14 +26,16 @@ class PropertyAdapter(
                 }
             }
         }
-        val direccion: TextView = itemView.findViewById(R.id.direccionItem)
-        val habitaciones: TextView = itemView.findViewById(R.id.habItem)
-        val baños: TextView = itemView.findViewById(R.id.bañosItem)
+        val direccion: TextView = itemView.findViewById(R.id.nombre)
+        val habitaciones: TextView = itemView.findViewById(R.id.address)
+        val baños: TextView = itemView.findViewById(R.id.tlf)
         val descripcion: TextView = itemView.findViewById(R.id.descripcionItem)
         val asesorNombreItem: TextView = itemView.findViewById(R.id.asesorNombreItem)
         val precio: TextView = itemView.findViewById(R.id.precio)
         val tipo: TextView = itemView.findViewById(R.id.tipo)
         val idP: TextView = itemView.findViewById(R.id.idP)
+        var image: ImageView = itemView.findViewById(R.id.imagePropertylist)
+
     }
 
     fun setFilteredList(mList: List<PropertyData>){
@@ -51,12 +56,22 @@ class PropertyAdapter(
         holder.precio.text = property.precio
         holder.tipo.text = property.tipo
         holder.idP.text = property.idP
-
+        val userId = mList[position].idP
+        downloadImageFromFirebase(userId, holder.image)
     }
 
     override fun getItemCount(): Int {
         return  mList.size
     }
-
-
+    private fun downloadImageFromFirebase(userId: String, imageView: ImageView) {
+        val storage = FirebaseStorage.getInstance()
+        val ref = storage.reference.child("propertyImages/$userId")
+        ref.downloadUrl.addOnSuccessListener { uri ->
+            val url = uri.toString()
+            Picasso.get().load(url).into(imageView)
+        }.addOnFailureListener {
+            // Puedes manejar el error aquí, por ejemplo, estableciendo una imagen predeterminada
+            // imageView.setImageResource(R.drawable.default_image)
+        }
+    }
 }

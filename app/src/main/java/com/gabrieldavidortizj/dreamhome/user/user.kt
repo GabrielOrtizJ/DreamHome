@@ -6,5 +6,6 @@ data class user (
     val phone: String = "",
     val provider: String = "",
     val tipo: String = "",
+    val idU: String = "",
     val favoriteProperties: MutableList<String> = mutableListOf()
 )

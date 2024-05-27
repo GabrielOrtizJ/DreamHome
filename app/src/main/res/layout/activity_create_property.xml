@@ -9,10 +9,10 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="332dp"
-        android:layout_height="127dp"
+        android:layout_width="321dp"
+        android:layout_height="87dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="31dp"
         android:fontFamily="@font/alfa_slab_one"
         android:gravity="center"
@@ -20,21 +20,21 @@
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="36dp"
+        android:layout_width="116dp"
+        android:layout_height="34dp"
         android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="Habitaciones "
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/textView13"
@@ -53,50 +53,50 @@
         android:id="@+id/textView14"
         android:layout_width="100dp"
         android:layout_height="25dp"
-        android:layout_marginStart="36dp"
         android:layout_marginBottom="156dp"
         android:gravity="center"
         android:text="Baños"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/desc_editP"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="132dp"
         android:layout_height="25dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="4dp"
         android:gravity="center"
         android:text="Descripcion"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/desc_editP"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <EditText
         android:id="@+id/desc_editP"
-        android:layout_width="298dp"
+        android:layout_width="227dp"
         android:layout_height="51dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="6dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Descripcion"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/providerEdit"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <EditText
         android:id="@+id/direccion_editP"
-        android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:layout_marginStart="12dp"
+        android:layout_width="212dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="13dp"
         android:layout_marginBottom="4dp"
         android:ems="10"
-        android:hint="Dirección"
+        android:hint="forma  paiz estado ciudad calle"
         android:inputType="text"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/hab_editP"
         app:layout_constraintStart_toEndOf="@+id/textView13" />
 
@@ -104,25 +104,21 @@
         android:id="@+id/hab_editP"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="4dp"
         android:ems="10"
         android:hint="Habitaciones"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/ba_editP"
-        app:layout_constraintStart_toEndOf="@+id/textView10" />
+        app:layout_constraintStart_toStartOf="@+id/direccion_editP" />
 
     <EditText
         android:id="@+id/ba_editP"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="116dp"
         android:ems="10"
         android:hint="Baños"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
-        app:layout_constraintStart_toEndOf="@+id/textView14" />
+        app:layout_constraintBottom_toTopOf="@+id/preciotext"
+        app:layout_constraintStart_toStartOf="@+id/hab_editP" />
 
     <TextView
         android:id="@+id/providerEdit"
@@ -150,71 +146,90 @@
 
     <TextView
         android:id="@+id/btnAddProperty"
-        android:layout_width="74dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="168dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:background="@drawable/baseline_add_home_24"
-        app:layout_constraintBottom_toTopOf="@+id/providerEdit"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/desc_editP"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/desc_editP"
+        app:layout_constraintTop_toBottomOf="@+id/desc_editP" />
 
     <TextView
         android:id="@+id/nombreEdit"
         android:layout_width="124dp"
         android:layout_height="26dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginStart="28dp"
         android:text="Nombre"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddProperty"
+        app:layout_constraintStart_toEndOf="@+id/btnAddProperty" />
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="88dp"
         android:layout_height="24dp"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="287dp"
         android:gravity="center"
         android:text="precio"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <EditText
         android:id="@+id/preciotext"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginTop="364dp"
         android:ems="10"
         android:hint="precio"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ba_editP" />
+        app:layout_constraintStart_toStartOf="@+id/ba_editP"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:layout_width="242dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="124dp"
+        android:id="@+id/radioGroup"
+        android:layout_width="209dp"
+        android:layout_height="49dp"
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/preciotext">
 
         <RadioButton
             android:id="@+id/ventatext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="81dp"
+            android:layout_height="match_parent"
             android:checked="true"
             android:text="Venta" />
 
         <RadioButton
             android:id="@+id/alquilertext"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Alquiler" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/albunproperty"
+        android:layout_width="51dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/baseline_perm_media_24"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/fotoproperty"
+        android:layout_width="51dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="68dp"
+        android:background="@drawable/baseline_photo_camera_24"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

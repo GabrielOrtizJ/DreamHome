@@ -9,8 +9,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/MaterialCardViews"
-        android:layout_width="399dp"
-        android:layout_height="79dp"
+        android:layout_width="378dp"
+        android:layout_height="75dp"
         android:layout_marginTop="4dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="12dp"
@@ -32,9 +32,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViews"
-        android:layout_width="392dp"
-        android:layout_height="569dp"
-        android:layout_marginStart="19dp"
+        android:layout_width="367dp"
+        android:layout_height="567dp"
+        android:layout_marginStart="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,10 +10,10 @@
 
   <TextView
       android:id="@+id/textView9"
-      android:layout_width="332dp"
-      android:layout_height="127dp"
+      android:layout_width="337dp"
+      android:layout_height="80dp"
       android:layout_marginStart="30dp"
-      android:layout_marginTop="36dp"
+      android:layout_marginTop="16dp"
       android:layout_marginEnd="31dp"
       android:fontFamily="@font/alfa_slab_one"
       android:gravity="center"
@@ -21,6 +21,7 @@
       android:textColor="@color/white"
       android:textSize="34sp"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,7 +56,7 @@
       android:layout_width="100dp"
       android:layout_height="25dp"
       android:layout_marginStart="28dp"
-      android:layout_marginBottom="168dp"
+      android:layout_marginBottom="184dp"
       android:gravity="center"
       android:text="Baños"
       android:textColor="@color/white"
@@ -68,7 +69,7 @@
       android:layout_width="132dp"
       android:layout_height="25dp"
       android:layout_marginStart="128dp"
-      android:layout_marginBottom="12dp"
+      android:layout_marginBottom="4dp"
       android:gravity="center"
       android:text="Descripcion"
       android:textColor="@color/white"
@@ -129,20 +130,21 @@
       android:id="@+id/idpropertytext"
       android:layout_width="226dp"
       android:layout_height="22dp"
-      android:layout_marginEnd="8dp"
-      android:layout_marginBottom="4dp"
+      android:layout_marginBottom="16dp"
       android:background="@android:drawable/screen_background_dark_transparent"
       android:hint="Id"
       android:textColor="@color/white"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent" />
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintStart_toStartOf="parent" />
 
   <TextView
       android:id="@+id/btnAddProperty"
       android:layout_width="63dp"
       android:layout_height="48dp"
-      android:layout_marginEnd="168dp"
-      android:layout_marginBottom="20dp"
+      android:layout_marginEnd="172dp"
+      android:layout_marginBottom="12dp"
       android:background="@drawable/baseline_settingshome"
       app:layout_constraintBottom_toTopOf="@+id/idpropertytext"
       app:layout_constraintEnd_toEndOf="parent" />
@@ -198,11 +200,42 @@
       android:layout_width="56dp"
       android:layout_height="20dp"
       android:layout_marginStart="48dp"
-      android:layout_marginTop="32dp"
+      android:layout_marginTop="36dp"
       android:gravity="center"
       android:text="Precio"
       android:textColor="@color/white"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+  <ImageView
+      android:id="@+id/imageCproperty"
+      android:layout_width="134dp"
+      android:layout_height="134dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView9"
+      app:srcCompat="@drawable/hogar" />
+
+  <TextView
+      android:id="@+id/albunCproperty"
+      android:layout_width="51dp"
+      android:layout_height="44dp"
+      android:layout_marginEnd="10dp"
+      android:background="@drawable/baseline_perm_media_24"
+      app:layout_constraintBottom_toBottomOf="@+id/imageCproperty"
+      app:layout_constraintEnd_toStartOf="@+id/imageCproperty"
+      app:layout_constraintTop_toTopOf="@+id/imageCproperty" />
+
+  <TextView
+      android:id="@+id/fotoCproperty"
+      android:layout_width="51dp"
+      android:layout_height="44dp"
+      android:layout_marginStart="10dp"
+      android:layout_marginTop="55dp"
+      android:layout_marginBottom="60dp"
+      android:background="@drawable/baseline_photo_camera_24"
+      app:layout_constraintBottom_toBottomOf="@+id/imageCproperty"
+      app:layout_constraintStart_toEndOf="@+id/imageCproperty"
+      app:layout_constraintTop_toTopOf="@+id/imageCproperty" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

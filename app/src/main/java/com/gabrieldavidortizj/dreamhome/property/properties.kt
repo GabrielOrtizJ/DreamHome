@@ -13,14 +13,18 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.gabrieldavidortizj.dreamhome.ProviderType
 import com.gabrieldavidortizj.dreamhome.R
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FieldValue
+ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Locale
 
+
+
 class properties : AppCompatActivity() {
     private lateinit var email : String
+    private lateinit var provider : String
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var searchView: SearchView
     private  var mList = ArrayList<PropertyData>()
@@ -37,6 +41,7 @@ class properties : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         addDataToList()
         email = bundle?.getString("email") ?: ""
+        provider = bundle?.getString("provider") ?: ""
 
         adapter = PropertyAdapter(mList, true) { view, documentId ->
             showPopup(view, documentId)
@@ -76,6 +81,11 @@ class properties : AppCompatActivity() {
         val inflater: MenuInflater = popup.menuInflater
         inflater.inflate(R.menu.popup_menuproperties, popup.menu)
 
+        var favorite = popup.menu.findItem(R.id.option_favorite)
+        if (provider == ProviderType.ANONIMO.name) {
+            favorite.isVisible = false
+        }
+
         // Configurar un listener para manejar clicks en las opciones del menú
         popup.setOnMenuItemClickListener { item: MenuItem ->
             when (item.itemId) {
@@ -97,7 +107,6 @@ class properties : AppCompatActivity() {
                         val updates = hashMapOf<String, Any>(
                             "favoriteProperties" to FieldValue.arrayUnion(documentId)
                         )
-
                         userRef.update(updates)
                             .addOnSuccessListener { Log.d(TAG, "Usuario actualizado con éxito!")
                                 Toast.makeText(this, "Añadido a favoritos ", Toast.LENGTH_SHORT).show()
@@ -106,16 +115,13 @@ class properties : AppCompatActivity() {
                                 Toast.makeText(this, "no se a podido añadir a favoritos debes identificarte antes para hacer esto" , Toast.LENGTH_SHORT).show()
                             }
                     }
-
                     true
                 }
                 else -> false
             }
         }
-
         popup.show()
     }
-
     private fun addDataToList() {
         propertiesCollection
             .get()

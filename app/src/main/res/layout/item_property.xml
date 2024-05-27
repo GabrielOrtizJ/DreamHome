@@ -5,8 +5,9 @@
     android:id="@+id/MaterialCardView"
     android:layout_width="430dp"
     android:layout_height="140dp"
-    android:layout_marginTop="15dp"
-    app:cardCornerRadius="80px">
+    android:layout_marginTop="7dp"
+    android:layout_marginLeft="7dp"
+    app:cardCornerRadius="100px">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="472dp"
@@ -15,29 +16,29 @@
 
         <TextView
             android:id="@+id/precio"
-            android:layout_width="123dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="48dp"
+            android:layout_width="124dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="1000000"
             android:textColor="#00C300"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/direccionItem" />
+            app:layout_constraintStart_toEndOf="@+id/precios"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/direccionItem"
-            android:layout_width="283dp"
-            android:layout_height="38dp"
+            android:id="@+id/nombre"
+            android:layout_width="282dp"
+            android:layout_height="28dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="6dp"
-            android:layout_marginBottom="116dp"
+            android:layout_marginBottom="112dp"
             android:fontFamily="@font/alfa_slab_one"
             android:gravity="center_vertical"
             android:text="Direccion"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.652"
+            app:layout_constraintHorizontal_bias="0.646"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -45,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="124dp"
-            android:layout_marginBottom="92dp"
+            android:layout_marginBottom="88dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Hab"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -55,30 +56,30 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="236dp"
-            android:layout_marginBottom="92dp"
+            android:layout_marginEnd="244dp"
+            android:layout_marginBottom="88dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Baños"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/bañosItem"
+            android:id="@+id/tlf"
             android:layout_width="35dp"
             android:layout_height="0dp"
-            android:layout_marginEnd="184dp"
-            android:layout_marginBottom="92dp"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="88dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/habItem"
+            android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="292dp"
-            android:layout_marginBottom="92dp"
+            android:layout_marginEnd="300dp"
+            android:layout_marginBottom="88dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="5"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -88,8 +89,8 @@
             android:id="@+id/asesorNombreItem"
             android:layout_width="131dp"
             android:layout_height="29dp"
-            android:layout_marginEnd="208dp"
-            android:layout_marginBottom="64dp"
+            android:layout_marginEnd="216dp"
+            android:layout_marginBottom="60dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="AsesorNombre"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -99,13 +100,13 @@
             android:id="@+id/precios"
             android:layout_width="14dp"
             android:layout_height="25dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="88dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="€"
             android:textColor="#00C300"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/precio" />
+            app:layout_constraintStart_toEndOf="@+id/imagePropertylist"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/descripcionItem"
@@ -118,23 +119,14 @@
             app:layout_constraintTop_toBottomOf="@+id/idP" />
 
         <TextView
-            android:id="@+id/textView28"
-            android:layout_width="99dp"
-            android:layout_height="78dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/baseline_home_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/idP"
             android:layout_width="203dp"
             android:layout_height="20dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="144dp"
+            android:layout_marginTop="5dp"
             android:text="id"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/asesorNombreItem"
             app:layout_constraintTop_toBottomOf="@+id/asesorNombreItem" />
 
         <TextView
@@ -146,9 +138,19 @@
             android:text="tipo"
             android:textColor="@color/teal_700"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView28"
-            app:layout_constraintStart_toStartOf="@+id/textView28"
-            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+            app:layout_constraintEnd_toEndOf="@+id/imagePropertylist"
+            app:layout_constraintStart_toStartOf="@+id/imagePropertylist"
+            app:layout_constraintTop_toBottomOf="@+id/imagePropertylist" />
+
+        <ImageView
+            android:id="@+id/imagePropertylist"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/hogar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

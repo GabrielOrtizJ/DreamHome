@@ -9,14 +9,22 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.SearchView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
+
 import com.gabrieldavidortizj.dreamhome.property.CreateProperty
 import com.gabrieldavidortizj.dreamhome.property.favorite
 import com.gabrieldavidortizj.dreamhome.property.properties
 import com.gabrieldavidortizj.dreamhome.property.yourproperties
+import com.gabrieldavidortizj.dreamhome.user.Contacts
+import com.gabrieldavidortizj.dreamhome.user.EditProfile
+import com.gabrieldavidortizj.dreamhome.user.mailPersonas
 import com.gabrieldavidortizj.dreamhome.user.meProfile
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.remoteconfig.remoteConfig
+
 
 enum class ProviderType{
     BASIC,
@@ -35,6 +43,8 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var provider : String
     private lateinit var email : String
     private lateinit var addHome : TextView
+    private lateinit var contacts : TextView
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +56,9 @@ class HomeActivity : AppCompatActivity() {
         searchView = findViewById<SearchView>(R.id.searchView)
         firebaseAuth = FirebaseAuth.getInstance()
         addHome = findViewById(R.id.btnAddHome)
+         contacts = findViewById(R.id.Buscar_contactos_button)
+        db = FirebaseFirestore.getInstance()
+
         //Setup
         val bundle=intent.extras
         email = bundle?.getString("email") ?: ""
@@ -64,19 +77,23 @@ class HomeActivity : AppCompatActivity() {
         searchView.setOnClickListener{
             val intent = Intent(this, properties::class.java).apply {
                 putExtra("email", emailText.text.toString())
-             }
-            startActivity(intent)
-        }
-        addHome.setOnClickListener{
-            val intent = Intent(this, CreateProperty::class.java).apply {
-                putExtra("email", emailText.text.toString())
                 putExtra("provider", providerText.text.toString())
             }
             startActivity(intent)
         }
+        addHome.setOnClickListener{
+            checkEmailAndStartActivity(CreateProperty::class.java)
+        }
+
+        contacts.setOnClickListener{
+            val intent = Intent(this, Contacts::class.java).apply {
+                putExtra("email", emailText.text.toString())
+            }
+            startActivity(intent)
+        }
+
 
     }
-
     private fun setup(email : String,provider:String) {
         title = "Inicio"
         emailText.text = email
@@ -86,7 +103,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menuhome, menu)
-        perfil = menu?.findItem(R.id.perfil)!! // Aquí obtienes la referencia al elemento del menú
+        perfil = menu?.findItem(R.id.perfil)!!
         misPisos = menu?.findItem(R.id.misPisos)!!
         favoritos = menu?.findItem(R.id.favoritos)!!
         //remote Config
@@ -99,10 +116,12 @@ class HomeActivity : AppCompatActivity() {
                     misPisos.isVisible = true
                     favoritos.isVisible = true
                     perfil.title = ButtonText
+                    addHome.isVisible = true
                 } else {
                     perfil.isVisible = false
                     misPisos.isVisible = false
                     favoritos.isVisible = false
+                    addHome.isVisible = false
                 }
             }
         }
@@ -127,29 +146,57 @@ class HomeActivity : AppCompatActivity() {
             finish()
             return true
         } else if (item.itemId == R.id.perfil) {
-            val intent = Intent(this, meProfile::class.java).apply {
-                putExtra("email", emailText.text.toString())
-                putExtra("provider", providerText.text.toString())
-            }
-            startActivity(intent)
+            checkEmailAndStartActivity(meProfile::class.java)
+
             return true
         }  else if (item.itemId == R.id.favoritos) {
-            val intent = Intent(this, favorite::class.java).apply {
-                putExtra("email", emailText.text.toString())
-                putExtra("provider", providerText.text.toString())
-            }
-            startActivity(intent)
+            checkEmailAndStartActivity(favorite::class.java)
+
             return true
         }  else if (item.itemId == R.id.misPisos) {
-            val intent = Intent(this, yourproperties::class.java).apply {
+            checkEmailAndStartActivity(yourproperties::class.java)
+
+            return true
+        } else if (item.itemId == R.id.gmailP) {
+            val intent = Intent(this, mailPersonas::class.java).apply {
                 putExtra("email", emailText.text.toString())
-                putExtra("provider", providerText.text.toString())
-            }
+             }
             startActivity(intent)
             return true
-        }else {
+        } else {
             return super.onOptionsItemSelected(item)
         }
     }
+    private fun checkEmailAndStartActivity(activityClass: Class<*>) {
+        val email = emailText.text.toString()
+        db.collection("user").document(email).get().addOnSuccessListener { document ->
+            if (document.exists()) {
+                val intent = Intent(this, activityClass).apply {
+                    putExtra("email", email)
+                    putExtra("provider", providerText.text.toString())
+                }
+                startActivity(intent)
+            } else {
+                showAlertDialog()
+            }
+        }
+    }
 
+    private fun showAlertDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Identificación requerida")
+            .setMessage("Para usar esta función, debes identificarte.")
+            .setPositiveButton("Identificarse") { _, _ ->
+                val intent = Intent(this, EditProfile::class.java).apply {
+                    putExtra("email", emailText.text.toString())
+                    putExtra("provider", providerText.text.toString())
+                }
+                startActivity(intent)
+            }
+            .setNegativeButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+            .show()
+    }
 }

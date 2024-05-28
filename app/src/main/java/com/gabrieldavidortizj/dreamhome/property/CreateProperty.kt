@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import com.gabrieldavidortizj.dreamhome.R
+import com.gabrieldavidortizj.dreamhome.user.EditProfile
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
@@ -155,6 +156,7 @@ class CreateProperty : AppCompatActivity() {
             storageDir /* directory */
         ).apply {
             imageUri = Uri.fromFile(this)
+            photoURI = (imageUri as Uri?)!! // Aquí se inicializa photoURI
         }
     }
 
@@ -175,13 +177,17 @@ class CreateProperty : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        if (requestCode == CreateProperty.REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             imageUri = photoURI
-        } else if (requestCode == PICK_PHOTO_REQUEST && resultCode == RESULT_OK) {
+        } else if (requestCode == CreateProperty.PICK_PHOTO_REQUEST && resultCode == RESULT_OK) {
             imageUri = data?.data
         }
         if (imageUri == null) {
             Toast.makeText(this, "No se seleccionó ninguna imagen", Toast.LENGTH_SHORT).show()
         }
+    }
+    companion object {
+        const val REQUEST_IMAGE_CAPTURE = 1
+        const val PICK_PHOTO_REQUEST = 2
     }
 }
